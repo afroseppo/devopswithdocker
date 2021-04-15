@@ -1,0 +1,1 @@
+The size of alpine image is 15MB whereas the other one is 85MB. The secret message is the same with the alpine version.

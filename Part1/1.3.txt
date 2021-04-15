@@ -1,0 +1,6 @@
+Commands used:
+    docker run -d -it --rm --name dok devopsdockeruh/simple-web-service:ubuntu
+    docker exec -it dok bash
+
+Secret message:
+'You can find the source code here: https://github.com/docker-hy'

@@ -1,0 +1,11 @@
+Command to start the process:
+    docker run -d -it --name ubn ubuntu sh -c 'echo "Input website:"; read website; echo "Searching.."; sleep 1; curl http://$website;'
+
+Commands to fix the issue:
+    docker exec -it ubn sh
+    apt upgrade && apt upgrade
+    apt install curl
+
+Command to test:
+    docker attach ubn
+    helsinki.fi 

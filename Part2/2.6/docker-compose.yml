@@ -1,0 +1,39 @@
+version: '3.5'
+
+services:
+    frontend:
+        build:
+            context: .
+            dockerfile: dockerfront
+        ports:
+            - 5000:3000
+        environment:
+            - REACT_APP_BACKEND_URL=http://localhost:8000
+
+    backend:
+        build:
+            context: .
+            dockerfile: dockerback
+        ports:
+            - 8000:8000
+        environment:
+            - PORT=8000
+            - REQUEST_ORIGIN=http://localhost:5000
+            - REDIS_HOST=redis
+            - POSTGRES_PASSWORD=example
+            - POSTGRES_DATABASE=postgres
+            - POSTGRES_USER=postgres
+            - POSTGRES_HOST=db
+
+    redis:
+        image: redis:alpine
+        command: redis-server
+        restart: unless-stopped
+        ports:
+            - 6379:6379
+
+    db:
+        image: postgres
+        restart: unless-stopped
+        environment:
+            POSTGRES_PASSWORD: example
